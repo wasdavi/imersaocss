@@ -1,0 +1,168 @@
+/*O CSS por padrão já traz alguns estilos aplicados, então utiliza-se um reset, depois pesquisar reset CSS e utilizar o do Eric, isso futuramente*/
+* {/*reset CSS*/
+    margin: 0;/*tiro todas as margens*/
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{/*body aplico configuração a tudo*/
+    /* background: #40e0d0;*/
+       background-image: url('../img/fundo.jpg'); /*Só 1 ponto estaria dentro da pasta CSS*/
+    /* background-size: auto 100vh; /*proporção e 100% para ajustar ao tamanho da tela*/
+       font-family: 'Gloria Hallelujah', cursive;
+       height: 100vh; 
+       font-size: 12px;
+     }
+
+     /*Essa anotação funciona como um IF*/
+     /*dentro do parenteses irei por o tamanho mínimo necessário da tela para que carregue os estilos que vou passar*/
+     @media (min-width: 400px){/*se a tela tiver tiver 400px a 599px vai carregar estes estilos*/
+      body{
+        font-size: 14px;
+        color: black;
+      }
+     }
+
+     @media (min-width: 600px){/*se a tela tiver tiver 600px ou mais vai carregar estes estilos*/
+      body{
+        font-size: 20px;
+      }
+     }
+
+     /*a MEDIA é conhecida como BREAKPOINT*/
+     @media (min-width: 1200px){/*se a tela tiver tiver 600px ou mais vai carregar estes estilos*/
+      body{
+        font-size: 22px;
+        background-image: none;/*tiro a imagem, se não irá sobrescrever a cor de fundo*/
+        background-color: blueviolet;
+      }
+     }
+
+     header{
+       height: 100vh;/*deixa o header na tela inteira, 100%, e deixa o portifolio na outra metade*/
+       display: flex;/*centraliza verticalmente os elementos*/
+       justify-content: center;/*o position tirou a centralização, então centralizo verticalmente de novo*/
+       align-items: center;/*usado para alinhar verticalmente ao 100% do header*/
+       /*o JUSTIFY e o ALING só funcionam por causa do flex*/
+     }
+    
+    /*no html insiro class, não usar id, para chamá-la depois, só o que estiver dentro da nav que mudará, ou seja, só quem for do tipo menu, é como se fosse um método em java*/
+    .menu{
+       background-color: white;
+       position: fixed;/*faz com que o menu acompanhe a barra de rolagem, põe o menu no eixo z, 3d, passando por cima dos eixos X e Y*/
+       width: 100vw;/*100% horizontal uso o W e não o H*/
+       top: 0;/*Colar o menu no topo da tela. Só funciona se o POSITION estiver declarado*/
+     }
+     
+     .menu li {/*assim eu altero só os LI dentro das classes menu*/
+       list-style: none;
+     }
+     
+     .menu ul{
+       display: flex;/*deixa um link do lado do outro*/
+       justify-content: space-around;/*tira espaço entre os links, só pode usar se o tiver o DISPLAY*/
+     }
+
+     .menu a{
+       /*background-color: rgb(171, 245, 245); /*usei este código só para debugar, ou seja, achar o tamanho da área de clique*/
+       display: block; /*sem o BLOCK quando eu aplicasse o PADDING a área de clique ficaria fora da área de fundo*/  
+       padding: 20px;  
+     }
+      
+     /*também posso chamar a tag e aplicar a configuração*/
+     a {/*assim eu altero todos com a tag A mesmos os fora da classe menu*/
+       color: teal;
+       text-decoration: none;/*tira o underline do link*/
+       }
+     
+     a:hover {/*mostra o underline do link*/
+       text-decoration: underline;
+       color: blue;
+     }
+     
+     .site-subtitulo, /*assim ponho a mesma config para os 2*/
+     .site-titulo {
+       color: whitesmoke;
+       text-align: center;
+       /*font-size: 12px;se eu definir um valor estático como o tamanho e a cor da fonte a ANOTAÇÃO não mudará este estilo*/
+     }
+
+     .site-titulo{
+       font-size: 4em;/*então em vez de usar tamanhos estáticos usamos relativos neste caso será 4x o tamanho do BODY*/
+     }
+
+     .site-subtitulo{
+      font-style: italic;
+      line-height: 1.5em;
+      font-family: 'Press Start 2P', cursive;
+     } 
+          
+     .portfolio{
+       background-color: chocolate;
+       padding: 2em;
+       height: 100vh;
+       /*margin-bottom: 1.5em;*/
+     }
+
+     /*o GRID eu determino o nº x de colunas, já o FLEX cria inumeras colunas*/
+     .portfolio .grid{
+       display: grid; /*o GRID não força a criação de colunas como o FLEX*/
+       gap: 2em;/*o GAP dá espaçamento entre cada coluna ou linha do GRID*/
+       
+     }
+
+    @media (min-width: 560px){
+    .portfolio .grid{
+      grid-template-columns: 240px 240px;/*defino quantas colunas eu quero e qual o tamanho de cada uma, só funciona se tiver o DISPLAY: GRID*/
+      justify-content: center;
+    }
+    }
+
+    @media (min-width:840px){
+      .portfolio .grid{
+        grid-template-columns: repeat(3, 240px);/*outra forma de definir o nº e tamanho das colunas*/
+        align-content: center;/*este centraliza e mantem junto os itens*/
+        /*align-items: center;Este centraliza, mas afasta os items*/
+        justify-content: center;
+        background-color: blanchedalmond;
+        /*height: 100vh;se usar só 100vh o GRID ficará maior que a SECTION: PORTFOLIO*/
+        height: calc(100vh - 4em);/*4em pq o meu GAP foi de 2em*/
+      }
+      }
+
+    @media (min-width: 1200px){
+      .portfolio .grid{
+        /*grid-template-columns: 240px 240px 204px;/*defino quantas colunas eu quero e qual o tamanho de cada uma, só funciona se tiver o DISPLAY: GRID*/
+        grid-template-columns: repeat(4, 240px);/*outra forma de definir o nº e tamanho das colunas*/
+        justify-content: center;
+      }
+      }
+
+    /* @media (min-width: 1460px){
+      .portfolio .grid{
+        /*grid-template-columns: 240px 240px 204px;/*defino quantas colunas eu quero e qual o tamanho de cada uma, só funciona se tiver o DISPLAY: GRID*/
+      /* display: flex;
+      justify-content: space-around;
+      }
+      }  */
+
+     .portfolio figure{
+       text-align: center;/*centralizar o texto e as figuras*/
+     }
+
+     .portfolio h2{
+      font-family: 'Source Code Pro', monospace;
+      color: whitesmoke;
+     }
+
+     .img-portfolio{
+       height: 180px;
+       width: 240px;
+       object-fit: cover;/*deixa as imagens na proporção correta sem distorcer, porém há cortes*/
+       object-position: left bottom;/*posiciona a imagem dentro de sua própria área*/
+       border-radius: 6%;/*permite ARREDONDAR as imagens*/
+     }
+
+    
+     
+     
