@@ -14,30 +14,6 @@
        font-size: 12px;
      }
 
-     /*Essa anotação funciona como um IF*/
-     /*dentro do parenteses irei por o tamanho mínimo necessário da tela para que carregue os estilos que vou passar*/
-     @media (min-width: 400px){/*se a tela tiver tiver 400px a 599px vai carregar estes estilos*/
-      body{
-        font-size: 14px;
-        color: black;
-      }
-     }
-
-     @media (min-width: 600px){/*se a tela tiver tiver 600px ou mais vai carregar estes estilos*/
-      body{
-        font-size: 20px;
-      }
-     }
-
-     /*a MEDIA é conhecida como BREAKPOINT*/
-     @media (min-width: 1200px){/*se a tela tiver tiver 600px ou mais vai carregar estes estilos*/
-      body{
-        font-size: 22px;
-        background-image: none;/*tiro a imagem, se não irá sobrescrever a cor de fundo*/
-        background-color: blueviolet;
-      }
-     }
-
      header{
        height: 100vh;/*deixa o header na tela inteira, 100%, e deixa o portifolio na outra metade*/
        display: flex;/*centraliza verticalmente os elementos*/
@@ -67,19 +43,41 @@
        /*background-color: rgb(171, 245, 245); /*usei este código só para debugar, ou seja, achar o tamanho da área de clique*/
        display: block; /*sem o BLOCK quando eu aplicasse o PADDING a área de clique ficaria fora da área de fundo*/  
        padding: 20px;  
+       transition: background-color 2s, color 2s;
      }
-      
+     
+     .menu a:hover{
+       background-color: deeppink;
+       color: blue;
+     }
+
      /*também posso chamar a tag e aplicar a configuração*/
-     a {/*assim eu altero todos com a tag A mesmos os fora da classe menu*/
+     .menu a {/*assim eu altero todos com a tag A mesmos os fora da classe menu*/
        color: teal;
        text-decoration: none;/*tira o underline do link*/
        }
      
-     a:hover {/*mostra o underline do link*/
+     .menu a:hover {/*mostra o underline do link*/
        text-decoration: underline;
        color: blue;
+       background-color: deeppink;
      }
      
+     .titulo-subtitulo{
+       opacity: 0;
+       animation: 1s ease 2s tituloSubtitulo forwards;
+     }
+
+     @keyframes tituloSubtitulo{
+        from{
+          opacity: 0;
+          transform: scale(0.2) translateY(50vh);
+        }to{
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+     }
+
      .site-subtitulo, /*assim ponho a mesma config para os 2*/
      .site-titulo {
        color: whitesmoke;
@@ -97,21 +95,35 @@
       font-family: 'Press Start 2P', cursive;
      } 
           
-     .portfolio{
+     .portfolio {
        background-color: chocolate;
-       padding: 2em;
-       height: 100vh;
-       /*margin-bottom: 1.5em;*/
-     }
+      }
+
+      .portfolio h2{
+        padding: 0.5em;
+      }
 
      /*o GRID eu determino o nº x de colunas, já o FLEX cria inumeras colunas*/
      .portfolio .grid{
        display: grid; /*o GRID não força a criação de colunas como o FLEX*/
        gap: 2em;/*o GAP dá espaçamento entre cada coluna ou linha do GRID*/
-       
+       padding: 1em; 
      }
 
-    @media (min-width: 560px){
+     /*Essa anotação funciona como um IF*/
+     /*dentro do parenteses irei por o tamanho mínimo necessário da tela para que carregue os estilos que vou passar*/
+     @media (min-width: 400px){/*se a tela tiver tiver 400px a 599px vai carregar estes estilos*/
+      body{
+        font-size: 14px;
+        color: black;
+      }
+      }
+
+    @media (min-width: 600px){
+    body{
+      font-size: 20px;
+    }
+    
     .portfolio .grid{
       grid-template-columns: 240px 240px;/*defino quantas colunas eu quero e qual o tamanho de cada uma, só funciona se tiver o DISPLAY: GRID*/
       justify-content: center;
@@ -119,18 +131,30 @@
     }
 
     @media (min-width:840px){
+      .portfolio{
+        height: 65vh;
+      }
       .portfolio .grid{
         grid-template-columns: repeat(3, 240px);/*outra forma de definir o nº e tamanho das colunas*/
         align-content: center;/*este centraliza e mantem junto os itens*/
         /*align-items: center;Este centraliza, mas afasta os items*/
         justify-content: center;
-        background-color: blanchedalmond;
         /*height: 100vh;se usar só 100vh o GRID ficará maior que a SECTION: PORTFOLIO*/
-        height: calc(100vh - 4em);/*4em pq o meu GAP foi de 2em*/
+        /*height: calc(100vh - 4em);/*4em pq o meu GAP foi de 2em*/
       }
       }
 
+    /*a MEDIA é conhecida como BREAKPOINT*/
+    /*se a tela tiver 1200px ou mais vai carregar estes estilos*/
     @media (min-width: 1200px){
+      body{
+        font-size: 22px;
+        background-image: none;/*tiro a imagem, se não irá sobrescrever a cor de fundo*/
+        background-color: blueviolet;
+      }
+      .portfolio{
+        height: 65vh;
+      }
       .portfolio .grid{
         /*grid-template-columns: 240px 240px 204px;/*defino quantas colunas eu quero e qual o tamanho de cada uma, só funciona se tiver o DISPLAY: GRID*/
         grid-template-columns: repeat(4, 240px);/*outra forma de definir o nº e tamanho das colunas*/
@@ -138,13 +162,16 @@
       }
       }
 
-    /* @media (min-width: 1460px){
+    @media (min-width: 1600px){
+      .portfolio{
+        height: 40vh;
+      }
       .portfolio .grid{
-        /*grid-template-columns: 240px 240px 204px;/*defino quantas colunas eu quero e qual o tamanho de cada uma, só funciona se tiver o DISPLAY: GRID*/
-      /* display: flex;
+      grid-template-columns: 240px 240px 204px;/*defino quantas colunas eu quero e qual o tamanho de cada uma, só funciona se tiver o DISPLAY: GRID*/
+      display: flex;
       justify-content: space-around;
       }
-      }  */
+      }  
 
      .portfolio figure{
        text-align: center;/*centralizar o texto e as figuras*/
@@ -161,8 +188,78 @@
        object-fit: cover;/*deixa as imagens na proporção correta sem distorcer, porém há cortes*/
        object-position: left bottom;/*posiciona a imagem dentro de sua própria área*/
        border-radius: 6%;/*permite ARREDONDAR as imagens*/
+       transition: transform 500ms;
      }
 
+     .img-portfolio:hover{
+       transform: scale(1.1) rotate(-2deg);
+       /* transform: skewX(10deg); */
+       /* transform: rotateX(180deg); */
+     }  
+     
+     .contatos h2{
+      color: whitesmoke;
+      padding-left: 0.5em;
+      padding-top: 0.5em;
+     }
+
+     .grid-icons{
+       display: grid;
+       justify-content: center;
+       grid-template-columns: repeat(5, 50px);
+       gap: 1.5em;
+       text-decoration: none;
+     }
+
+     .contatos a{
+       text-decoration: none;
+       font-size: 50px;
+       color: whitesmoke;
+       transition: text-shadow 1s;
+       transition: background-color 2s, font-size 0.5s, color 1s;
+     }
+
+     .contatos a:hover{
+       text-shadow: 0px 0px 10px whitesmoke;
+       font-size: 55px;
+     }
+
+     .github:hover,
+     .codepen:hover{
+       color: black;
+     }
+     
+     .facebook:hover,
+     .twitter:hover{
+       color: royalblue;
+     }
+
+     .youtube:hover{
+       color: red;
+     }
+     
+    /* 
+    line-height: 15px;     #tamanho da altura de cada linha
+    letter-spacing: 2px;   #espaçamento entre letras
+    word-spacing: 3px;     #espaçamento entre palavras
+    text-indent: 30px;     #tamanho da margem da 1ª linha (parágrafo na 1ª linha)
+    font-family: "Monospace", "Helvetica", sans-serif;     #o navegado verifica se a fonte arial está disponível se não estiver aplica a helvetica, será em castata
+    border-color: white;    #cor da borda
+    border-style: solid;    #estilo da borda será uma linha contínua
+    border-width: 1px;      #largura da borda
+    border: 1px solid red;  #largura, linha contínua e cor da borda
+    border-bottom: 2px solid #333333;   #linha contínua de uma ponta a outra
+    float: right;           #deixa o objeto flutuando ao lado do texto
+    padding-left: 10px;     #distância da margem
+    padding-right: 10px;    #distância da margem
+    padding-top: 25px;      #distância da margem
+    margin: 32px 0 10px 10px; #margem geral
+    margin: 20px;             #margem geral
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: circle;  #aplicará o padrão de círculo a toda a lista
+    vertical-align: middle;   #alinhamento vertical
+    filter: blur(1px);        #deixa a imagem embaçada 
+    box-shadow: black 5px 5px 5px 5px   #sombra
+    */   
     
-     
-     

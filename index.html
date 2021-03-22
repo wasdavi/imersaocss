@@ -7,25 +7,26 @@
     <link rel="stylesheet" href="css/estilos.css">
     <!-- link das fontes do google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Press+Start+2P&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5d7ce9bc91.js" crossorigin="anonymous"></script>
     <title>Weverson Araújo</title>
 </head>
 <body>
     <header>
         <nav class="menu">
           <ul>
-            <li><a href="#"> Sobre </a></li>
+            <li><a href="#Sobre"> Sobre </a></li>
             <li><a href="#"> Portifólio </a></li>
             <li><a href="#"> Contato </a></li>
           </ul>
         </nav>
-        <div><!--a div agrupa h1 e h2 deixando um do lado do outro, que foi alterado pelo display: flex, é bem genérico não tem função definida, serve para auxiliar o css-->
+        <div class="titulo-subtitulo"><!--a div agrupa h1 e h2 deixando um do lado do outro, que foi alterado pelo display: flex, é bem genérico não tem função definida, serve para auxiliar o css-->
             <h1 class="site-titulo"> Weverson Araújo de Santana</h1>
             <h2 class="site-subtitulo"> jr. developer CSS</h2>
             <h2 class="site-subtitulo"> sr. developer java/struts 2</h2>
         </div>
    
     </header>
-    <section class="portfolio">
+    <section class="portfolio" id="Sobre">
     <h2>Projetos</h2>
     <div class="grid">
     <figure>
@@ -50,5 +51,59 @@
     </figure>
     </div>
     </section>
+
+    <section class="two"></section>
+    <section class="contatos">
+        <h2>Contatos</h2>
+        <div class="grid-icons">
+            <a class="github" href="#" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a class="codepen" href="#" target="_blank">
+                <i class="fab fa-codepen"></i>
+            </a>
+            <a class="facebook" href="#" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a class="twitter" href="#" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a class="youtube" href="#" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </section>
 </body>
 </html>
+
+<!-- 
+    <strong></strong> - põe em negrigo
+    <p></p> - parágrafo
+    <em></em> - põe em itálico
+    target="blank" - abre o link em uma nova janela
+    <footer></footer> - para adicionar um rodapé
+    &copy - copyright
+    
+    <ul> 
+        <li>Primeira lista não ordenada.</li>
+        <li> Próxima lista:
+            <ul> diminui o nível hierárquico
+                <li>Segunda lista não ordenada.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ol>
+        <li>Primeira lista oredenada.</li>
+        <li>Segunda lista oredenada.</li>
+        <li>Terceira lista oredenada.</li>
+        <li>Quarta lista oredenada.</li>
+    </ol>
+
+    <dl>
+        <dt>Listas de definição DT 1</dt>   DT não tem marcadores apenas cria a lista
+            <dd>Primeira DD</dd>                DD continuação com espaçamento da margem
+        <dt>Listas de definição DT 2</dt>
+            <dd>Segunda DD</dd>
+    </dl>
+ -->
